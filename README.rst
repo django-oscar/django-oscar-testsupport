@@ -18,3 +18,10 @@ Contents:
   WebTest.
 
 * Various factory methods for creating orders, products, offers and vouchers.
+
+Install
+------
+
+Install with::
+
+   pip install django-oscar-testsupport 
