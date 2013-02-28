@@ -6,7 +6,7 @@ PROJECT_ROOT = os.path.dirname(__file__)
 
 setup(
     name='django-oscar-testsupport',
-    version='0.2',
+    version='0.2.1',
     url='https://github.com/tangentlabs/django-oscar-testsupport',
     author="David Winterbottom",
     author_email="david.winterbottom@tangentlabs.co.uk",
@@ -16,8 +16,8 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'django-oscar',
-        'WebTest>=1.3',
-        'django-webtest>=1.5',
-        'purl>=0.4',
+        'django-oscar>=0.4,<0.6',
+        'WebTest>=1.3,<2.1',
+        'django-webtest>=1.5.7,<1.6',
+        'purl>=0.4,<0.5',
     ])
