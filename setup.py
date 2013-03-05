@@ -19,5 +19,6 @@ setup(
         'django-oscar>=0.4,<0.6',
         'WebTest>=1.3,<2.1',
         'django-webtest>=1.5.7,<1.6',
-        'purl>=0.4',
+        'purl>=0.4,<0.5',
+        'mock>=1.0.1,<1.1'
     ])
