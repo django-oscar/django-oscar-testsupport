@@ -27,9 +27,9 @@ Partner, StockRecord = get_classes('partner.models', ('Partner',
                                          'Condition', 'Benefit'))
 
 
-def create_product(price=None, title="Dummy title",
-                   product_class="Dummy item class",
-        partner="Dummy partner", partner_sku=None, upc=None, num_in_stock=10,
+def create_product(price=None, title=u"Dummy title",
+                   product_class=u"Dummy item class",
+        partner=u"Dummy partner", partner_sku=None, upc=None, num_in_stock=10,
         attributes=None, **kwargs):
     """
     Helper method for creating products that are used in tests.
@@ -121,5 +121,5 @@ def create_voucher():
         code="test",
         start_date=datetime.date.today(),
         end_date=datetime.date.today() + datetime.timedelta(days=12))
-    voucher.offers.add(create_offer())
+    voucher.offers.add(create_offer(offer_type='Voucher'))
     return voucher
