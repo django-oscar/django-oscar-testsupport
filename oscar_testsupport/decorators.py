@@ -1,3 +1,5 @@
+import mock
+
 def dataProvider(fn_data_provider):
     """
     Data provider decorator, allows another callable to provide the data for
@@ -22,3 +24,8 @@ def dataProvider(fn_data_provider):
                     self.fail("%s (Provided data: %s, %s)" % (e, args, kwargs))
         return execute_test_method_with_each_data_set
     return test_decorator
+
+
+def no_database():
+    fake_db = Mock(side_effect=RuntimeError("No DB!"))
+    return patch('django.db.backends.util.CursorWrapper', fake_db)
