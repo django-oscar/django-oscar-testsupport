@@ -29,8 +29,8 @@ Partner, StockRecord = get_classes('partner.models', ('Partner',
 
 def create_product(price=None, title=u"Dummy title",
                    product_class=u"Dummy item class",
-        partner=u"Dummy partner", partner_sku=None, upc=None, num_in_stock=10,
-        attributes=None, **kwargs):
+                   partner=u"Dummy partner", partner_sku=None, upc=None, num_in_stock=10,
+                   attributes=None, **kwargs):
     """
     Helper method for creating products that are used in tests.
     """

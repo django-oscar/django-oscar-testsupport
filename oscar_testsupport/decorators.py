@@ -1,4 +1,6 @@
 import mock
+from django.utils.functional import curry
+
 
 def dataProvider(fn_data_provider):
     """
@@ -26,6 +28,36 @@ def dataProvider(fn_data_provider):
     return test_decorator
 
 
-def no_database():
-    fake_db = Mock(side_effect=RuntimeError("No DB!"))
-    return patch('django.db.backends.util.CursorWrapper', fake_db)
+# This will be in Oscar 0.6 - it should be functools though!
+def compose(*functions):
+    """
+    Compose functions
+
+    This is useful for combining decorators.
+    """
+    def _composed(*args):
+        for fn in functions:
+            try:
+                args = fn(*args)
+            except TypeError:
+                # args must be scalar so we don't try to expand it
+                args = fn(args)
+        return args
+    return _composed
+
+
+no_database = mock.patch(
+    'django.db.backends.util.CursorWrapper', mock.Mock(
+        side_effect=RuntimeError("Using the database is not permitted!")))
+
+
+no_filesystem = mock.patch('__builtin__.open', mock.Mock(
+    side_effect=RuntimeError("Using the filesystem is not permitted!")))
+
+
+no_sockets = mock.patch('socket.getaddrinfo', mock.Mock(
+    side_effect=RuntimeError("Using sockets is not permitted!")))
+
+
+no_externals = no_diggity = compose(
+    no_database, no_filesystem, no_sockets)  # = no doubt
