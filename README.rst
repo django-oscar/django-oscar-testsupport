@@ -6,7 +6,7 @@ Warning
 -------
 
 As of Oscar 0.6, this package has been merged back into Oscar, within the
-``oscar/test`` package.  There will be no 0.4 release of this package.
+``oscar/test`` package.  There will be no 0.5 release of this package.
 
 Description
 -----------
