@@ -6,7 +6,7 @@ PROJECT_ROOT = os.path.dirname(__file__)
 
 setup(
     name='django-oscar-testsupport',
-    version='0.4',
+    version='0.4.1',
     url='https://github.com/tangentlabs/django-oscar-testsupport',
     author="David Winterbottom",
     author_email="david.winterbottom@tangentlabs.co.uk",
