@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'django-oscar>=0.4,<0.6',
+        'django-oscar>=0.4',
         'WebTest>=1.3,<2.1',
         'django-webtest>=1.5.7,<1.6',
         'purl>=0.4,<0.5',
